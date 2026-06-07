@@ -2,34 +2,138 @@
 <html>
 <head>
   <title>my silly website~</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .hero {
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      color: hotpink;
+      font-size: 3rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #aaa;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: hotpink;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #222;
+      padding-bottom: 8px;
+    }
+
+    p {
+      color: #ddd;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 20px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: hotpink;
+      transform: translateY(-3px);
+    }
+
+    a {
+      color: hotpink;
+      text-decoration: none;
+      font-weight: 600;
+      margin-right: 20px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .links {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Hi, I'm "Elysia"</h1>
-  <h6>*My actual name is Eric Xia</h6>
-  <p>This is my portfolio website, where I put all my stuff.</p>
-  <h3>About Me</h3>
-  <p>I am a student who passed the CCNA Exam (certification pending), and works on multiple different fun stuff, including networking labs, CAD projects, and art + animation. Absolutely no AI used in the art (the only case is if I need to upscale it)!</p>
-  <h2>Lab Portfolio</h2>
-  <h2>CAD Projects</h2>
-  <h2>Art and Animations</h2>
-  <a href="https://www.pixiv.net/en/users/105636542">Pixiv</a>
-  <a href="https://x.com/efy1228">Twiiter/X</a>
+  <div class="container">
+
+    <section class="hero">
+      <h1>Hi, I'm "Elysia"</h1>
+      <p class="subtitle">*My actual name is Eric Xia</p>
+
+      <p>
+        This is my portfolio website, where I showcase my projects,
+        artwork, and technical work.
+      </p>
+    </section>
+
+    <div class="card">
+      <h2>About Me</h2>
+
+      <p>
+        I am a student who passed the CCNA exam (certification pending)
+        and enjoy working on networking labs, CAD projects,
+        digital art, and animation.
+      </p>
+
+      <p>
+        Absolutely no AI is used in my artwork
+        (except occasionally for image upscaling).
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Lab Portfolio</h2>
+      <p>Networking labs, infrastructure projects, and experiments.</p>
+    </div>
+
+    <div class="card">
+      <h2>CAD Projects</h2>
+      <p>Mechanical design, modelling, and engineering work.</p>
+    </div>
+
+    <div class="card">
+      <h2>Art & Animations</h2>
+
+      <div class="links">
+        <a href="https://www.pixiv.net/en/users/105636542">Pixiv</a>
+        <a href="https://x.com/efy1228">Twitter/X</a>
+      </div>
+    </div>
+
+  </div>
 </body>
-
-
-<style>
-body {
-  background: #000000;
-  color: white;
-  font-family: "Poppins", sans-serif;
-}
-  
-h1 {
-  color: hotpink;
-}
-</style>
 </html>

@@ -13,7 +13,35 @@
       padding: 0;
       box-sizing: border-box;
     }
+    
+    .navbar {
+      background: #111;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
+    .nav-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .nav-container a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-container a:hover {
+      color: hotpink;
+    }
+    
     body {
       background: #0a0a0a;
       color: white;
@@ -88,6 +116,15 @@
 </head>
 
 <body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html">HOME</a> |
+      <a href="Portfolio.html">LAB PORTFOLIO</a> |
+      <a href="3DRenders.html">3D RENDERS AND PROJECTS</a> |
+      <a href="ArtSamples.html">ART SAMPLES</a>
+    </div>
+  </nav>
+  
   <div class="container">
 
     <section class="hero">

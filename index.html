@@ -13,6 +13,16 @@
       padding: 0;
       box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
+    .hero,
+    .card {
+      scroll-snap-align: center;
+    }
     
     .navbar {
       background: #111;
@@ -56,7 +66,13 @@
     }
 
     .hero {
-      margin-bottom: 50px;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      margin-bottom: 100px;
     }
 
     h1 {
@@ -85,17 +101,38 @@
     }
 
     .card {
-      background: #111;
+      min-height: 80vh;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      background: rgba(17,17,17,0.75);
       border: 1px solid #222;
-      border-radius: 16px;
-      padding: 24px;
-      margin-top: 20px;
-      transition: 0.2s;
+      border-radius: 24px;
+
+      padding: 60px;
+      margin: 120px 0;
+
+      backdrop-filter: blur(12px);
+
+      opacity: 0;
+      transform: translateY(60px);
+
+      transition:
+      opacity 0.8s ease,
+      transform 0.8s ease,
+      border-color 0.3s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .card:hover {
       border-color: hotpink;
-      transform: translateY(-3px);
+      transform: translateY(-5px);
     }
 
     a {
@@ -114,6 +151,25 @@
     }
   </style>
 </head>
+
+<script>
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.25
+  }
+);
+
+document.querySelectorAll(".card").forEach((card) => {
+  observer.observe(card);
+});
+</script>
 
 <body>
   <nav class="navbar">

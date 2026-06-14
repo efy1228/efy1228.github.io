@@ -101,6 +101,8 @@
     }
 
     .card {
+      will-change: transform, opacity;
+      
       min-height: 80vh;
 
       display: flex;
@@ -132,7 +134,6 @@
 
     .card:hover {
       border-color: hotpink;
-      transform: translateY(-5px);
     }
 
     a {
@@ -151,25 +152,6 @@
     }
   </style>
 </head>
-
-<script>
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  {
-    threshold: 0.25
-  }
-);
-
-document.querySelectorAll(".card").forEach((card) => {
-  observer.observe(card);
-});
-</script>
 
 <body>
   <nav class="navbar">
@@ -230,5 +212,23 @@ document.querySelectorAll(".card").forEach((card) => {
     </div>
 
   </div>
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      {
+        threshold: 0.25
+      }
+    );
+    
+    document.querySelectorAll(".card").forEach((card) => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>

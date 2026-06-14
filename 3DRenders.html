@@ -39,8 +39,8 @@
       margin: 0 auto;
       padding: 16px 24px;
       display: flex;
-      gap: 20px;
       justify-content: center;
+      gap: 20px;
     }
 
     .nav-container a {
@@ -54,9 +54,9 @@
       color: hotpink;
     }
 
-    /* PAGE WRAPPER */
+    /* PAGE */
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 60px 24px;
     }
@@ -69,28 +69,30 @@
 
     p {
       color: #bbb;
+      max-width: 70ch;
       margin-bottom: 40px;
     }
 
-    /* GRID GALLERY */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+    /* GALLERY MUSEUM STACK */
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 160px;
+      margin-top: 60px;
     }
 
-    /* ISLAND CARDS */
+    /* MUSEUM CARD */
     .card {
-      background: rgba(17,17,17,0.75);
+      background: rgba(17,17,17,0.6);
       border: 1px solid #222;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
 
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(60px);
+      transition: 0.9s ease;
 
-      transition: 0.6s ease;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.55);
     }
 
     .card.show {
@@ -100,44 +102,47 @@
 
     .card:hover {
       border-color: hotpink;
-      transform: translateY(-6px);
     }
 
-    .img {
-      width: 100%;
-      height: 180px;
+    /* HERO IMAGE BLOCK */
+    .hero-img {
+      height: 450px;
       background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #666;
+      position: relative;
+    }
+
+    .hero-img::after {
+      content: "3D Render Preview";
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      color: #aaa;
       font-size: 0.9rem;
     }
 
+    /* CONTENT */
     .content {
-      padding: 20px;
+      padding: 26px;
     }
 
     .content h2 {
       color: hotpink;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
     }
 
     .content p {
-      font-size: 0.9rem;
       color: #ccc;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
-    a.button {
-      display: inline-block;
+    a {
       color: hotpink;
       font-weight: 600;
       text-decoration: none;
     }
 
-    a.button:hover {
+    a:hover {
       text-decoration: underline;
     }
   </style>
@@ -145,7 +150,7 @@
 
 <body>
 
-  <!-- NAVBAR (same across all pages) -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html">HOME</a>
@@ -158,40 +163,56 @@
   <div class="container">
 
     <h1>3D Renders & Projects</h1>
-    <p>Mechanical modelling, CAD work, and rendered visualisations.</p>
+    <p>
+      A curated collection of CAD work, mechanical design, and rendered visual studies —
+      presented like a gallery exhibition.
+    </p>
 
-    <div class="grid">
+    <div class="gallery">
 
+      <!-- PROJECT 1 -->
       <div class="card">
-        <div class="img">Render Preview</div>
+        <div class="hero-img"></div>
         <div class="content">
-          <h2>Project One</h2>
-          <p>Short description of your CAD / render project.</p>
-          <a class="button" href="#">View details</a>
+          <h2>Carbon Fibre Chassis Concept</h2>
+          <p>
+            Lightweight structural study exploring rigidity, airflow optimisation,
+            and motorsport-inspired packaging.
+          </p>
+          <a href="#">View case study →</a>
         </div>
       </div>
 
+      <!-- PROJECT 2 -->
       <div class="card">
-        <div class="img">Render Preview</div>
+        <div class="hero-img"></div>
         <div class="content">
-          <h2>Project Two</h2>
-          <p>Another modelling / simulation project.</p>
-          <a class="button" href="#">View details</a>
+          <h2>Aerodynamic Hypercar Study</h2>
+          <p>
+            CFD-inspired exterior modelling focusing on downforce balance and
+            high-speed stability design.
+          </p>
+          <a href="#">View case study →</a>
         </div>
       </div>
 
+      <!-- PROJECT 3 -->
       <div class="card">
-        <div class="img">Render Preview</div>
+        <div class="hero-img"></div>
         <div class="content">
-          <h2>Project Three</h2>
-          <p>Assembly, animation, or mechanical design work.</p>
-          <a class="button" href="#">View details</a>
+          <h2>Mechanical Assembly Simulation</h2>
+          <p>
+            Multi-part assembly with motion constraints and stress testing for
+            real-world engineering validation.
+          </p>
+          <a href="#">View case study →</a>
         </div>
       </div>
 
     </div>
   </div>
 
+  <!-- SCROLL REVEAL SCRIPT -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

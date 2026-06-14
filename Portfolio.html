@@ -1,1 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab Portfolio</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #111;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .nav-container a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-container a:hover {
+      color: hotpink;
+    }
+
+    /* PAGE */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    h1 {
+      color: hotpink;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    p.subtitle {
+      color: #bbb;
+      margin-bottom: 40px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    /* CARD */
+    .card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 22px;
+
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: hotpink;
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: hotpink;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .card a {
+      color: hotpink;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin-right: 12px;
+    }
+
+    .card a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html">HOME</a>
+      <a href="Portfolio.html">LAB PORTFOLIO</a>
+      <a href="3DRenders.html">3D RENDERS AND PROJECTS</a>
+      <a href="ArtSamples.html">ART SAMPLES</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <h1>Lab Portfolio</h1>
+    <p class="subtitle">
+      Networking labs, Cisco practice, and engineering documentation.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>Lab 1 — Subnetting Basics</h2>
+        <p>IP addressing fundamentals and subnet calculations.</p>
+        <a href="docs/lab1.docx" target="_blank">Open</a>
+      </div>
+
+      <div class="card">
+        <h2>Lab 2 — Static Routing</h2>
+        <p>Basic router-to-router static route configuration.</p>
+        <a href="docs/lab2.docx" target="_blank">Open</a>
+      </div>
+
+      <div class="card">
+        <h2>Lab 3 — OSPF Multi-Area</h2>
+        <p>Dynamic routing using OSPF across multiple areas.</p>
+        <a href="docs/lab3.docx" target="_blank">Open</a>
+      </div>
+
+      <div class="card">
+        <h2>Lab 4 — VLAN Configuration</h2>
+        <p>Switch segmentation and VLAN trunking setup.</p>
+        <a href="docs/lab4.docx" target="_blank">Open</a>
+      </div>
+
+      <div class="card">
+        <h2>Lab 5 — ACL Security Rules</h2>
+        <p>Access control lists for traffic filtering and security.</p>
+        <a href="docs/lab5.docx" target="_blank">Open</a>
+      </div>
+
+      <div class="card">
+        <h2>Lab 6 — DHCP & NAT</h2>
+        <p>Dynamic IP assignment and network address translation setup.</p>
+        <a href="docs/lab6.docx" target="_blank">Open</a>
+      </div>
+
+      <div class="card">
+        <h2>Lab 7 — Network Troubleshooting</h2>
+        <p>Packet tracing, diagnostics, and issue resolution practice.</p>
+        <a href="docs/lab7.docx" target="_blank">Open</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

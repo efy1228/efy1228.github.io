@@ -1,1 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Renders & Projects</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: "Poppins", sans-serif;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #111;
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .nav-container a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-container a:hover {
+      color: hotpink;
+    }
+
+    /* PAGE WRAPPER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    h1 {
+      color: hotpink;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #bbb;
+      margin-bottom: 40px;
+    }
+
+    /* GRID GALLERY */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    /* ISLAND CARDS */
+    .card {
+      background: rgba(17,17,17,0.75);
+      border: 1px solid #222;
+      border-radius: 20px;
+      overflow: hidden;
+
+      opacity: 0;
+      transform: translateY(40px);
+
+      transition: 0.6s ease;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      border-color: hotpink;
+      transform: translateY(-6px);
+    }
+
+    .img {
+      width: 100%;
+      height: 180px;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .content h2 {
+      color: hotpink;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .content p {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-bottom: 12px;
+    }
+
+    a.button {
+      display: inline-block;
+      color: hotpink;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    a.button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR (same across all pages) -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html">HOME</a>
+      <a href="Portfolio.html">LAB PORTFOLIO</a>
+      <a href="3DRenders.html">3D RENDERS AND PROJECTS</a>
+      <a href="ArtSamples.html">ART SAMPLES</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <h1>3D Renders & Projects</h1>
+    <p>Mechanical modelling, CAD work, and rendered visualisations.</p>
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="img">Render Preview</div>
+        <div class="content">
+          <h2>Project One</h2>
+          <p>Short description of your CAD / render project.</p>
+          <a class="button" href="#">View details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img">Render Preview</div>
+        <div class="content">
+          <h2>Project Two</h2>
+          <p>Another modelling / simulation project.</p>
+          <a class="button" href="#">View details</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="img">Render Preview</div>
+        <div class="content">
+          <h2>Project Three</h2>
+          <p>Assembly, animation, or mechanical design work.</p>
+          <a class="button" href="#">View details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    document.querySelectorAll(".card").forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>

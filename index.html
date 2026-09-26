@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>my silly website~</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric's Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -16,115 +18,128 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
-    }
-
-    .hero,
-    .card {
-      scroll-snap-align: center;
-    }
-    
-    .navbar {
-      background: #111;
-      border-bottom: 1px solid #222;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .nav-container a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .nav-container a:hover {
-      color: hotpink;
     }
     
     body {
       background: #0a0a0a;
-      color: white;
+      color: #e5e5e5;
       font-family: "Poppins", sans-serif;
       line-height: 1.6;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 24px;
-    }
-
-    .hero {
       min-height: 100vh;
-
       display: flex;
       flex-direction: column;
-      justify-content: center;
+    }
 
-      margin-bottom: 100px;
+    /* Navbar */
+    .navbar {
+      background: rgba(17, 17, 17, 0.85);
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-container a {
+      color: #aaa;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-container a:hover,
+    .nav-container a.active {
+      color: hotpink;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 40px;
+      max-width: 700px;
     }
 
     h1 {
       color: hotpink;
-      font-size: 3rem;
-      margin-bottom: 8px;
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 12px;
     }
 
     .subtitle {
-      color: #aaa;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      color: hotpink;
-      margin-top: 40px;
-      margin-bottom: 12px;
-      border-bottom: 2px solid #222;
-      padding-bottom: 8px;
-    }
-
-    p {
-      color: #ddd;
+      color: #888;
+      font-size: 1rem;
+      margin-top: -4px;
       margin-bottom: 16px;
     }
 
-    .card {
-      will-change: transform, opacity;
-      
-      min-height: 80vh;
+    .hero-text {
+      color: #ccc;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
 
+    .badge {
+      display: inline-block;
+      background: rgba(255, 105, 180, 0.1);
+      color: hotpink;
+      border: 1px solid rgba(255, 105, 180, 0.3);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    /* Grid Layout for Cards */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    /* Full width card modifier for About section */
+    .card-full {
+      grid-column: 1 / -1;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(17, 17, 17, 0.7);
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 32px;
+      backdrop-filter: blur(12px);
       display: flex;
       flex-direction: column;
-      justify-content: center;
-
-      background: rgba(17,17,17,0.75);
-      border: 1px solid #222;
-      border-radius: 24px;
-
-      padding: 60px;
-      margin: 120px 0;
-
-      backdrop-filter: blur(12px);
-
+      justify-content: space-between;
+      
+      /* Smooth Animations */
       opacity: 0;
-      transform: translateY(60px);
-
-      transition:
-      opacity 0.8s ease,
-      transform 0.8s ease,
-      border-color 0.3s ease;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card.show {
@@ -134,83 +149,129 @@
 
     .card:hover {
       border-color: hotpink;
+      box-shadow: 0 8px 24px rgba(255, 105, 180, 0.08);
     }
 
-    a {
+    .card h2 {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .card-link {
       color: hotpink;
       text-decoration: none;
       font-weight: 600;
-      margin-right: 20px;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .card-link:hover {
+      gap: 10px;
+      text-decoration: none;
     }
 
-    .links {
-      margin-top: 20px;
+    /* Footer */
+    footer {
+      border-top: 1px solid #1a1a1a;
+      text-align: center;
+      padding: 24px;
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.4rem;
+      }
+      .card {
+        padding: 24px;
+      }
     }
   </style>
 </head>
 
 <body>
+
   <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html">HOME</a>
+      <a href="index.html" class="active">HOME</a>
       <a href="Portfolio.html">LAB PORTFOLIO</a>
-      <a href="3DRenders.html">3D RENDERS AND PROJECTS</a>
+      <a href="3DRenders.html">3D RENDERS</a>
       <a href="ArtSamples.html">ART SAMPLES</a>
     </div>
   </nav>
   
   <div class="container">
 
-    <section class="hero">
+    <header class="hero">
+      <span class="badge">WORK IN PROGRESS</span>
       <h1>Hi, I'm Eric.</h1>
-
-      <p>
-        This is my portfolio website, where I showcase my projects,
-        artwork, and technical work.
-        THIS PAGE IS CURRENTLY A WIP. EXPECT THIS PAGE TO BE UPDATED
-        SOON.
+      <p class="hero-text">
+        Welcome to my portfolio! Here you'll find a showcase of my technical networking projects, CAD work, digital art, and animations.
       </p>
-    </section>
+    </header>
 
-    <div class="card">
-      <h2>About Me</h2>
+    <div class="grid-container">
 
-      <p>
-        I am a student who passed the CCNA exam (certification pending)
-        and enjoy working on networking labs, CAD projects,
-        digital art, and animation.
-      </p>
+      <!-- About Card (Full Width) -->
+      <div class="card card-full">
+        <div>
+          <h2>About Me</h2>
+          <p>
+            I am a student preparing for CCNA certification with a passion for building hands-on networking labs, CAD modelling, digital art, and animation.
+          </p>
+          <p style="margin-bottom: 0;">
+            <strong style="color: #eee;">🎨 Note on Art:</strong> Absolutely no AI is used in my artwork (except occasionally for high-resolution image upscaling).
+          </p>
+        </div>
+      </div>
 
-      <p>
-        Absolutely no AI is used in my artwork
-        (except occasionally for image upscaling).
-      </p>
-    </div>
+      <!-- Section Cards (Grid) -->
+      <div class="card">
+        <div>
+          <h2>Lab Portfolio</h2>
+          <p>Networking labs, infrastructure projects, routing experiments, and systems configuration.</p>
+        </div>
+        <a href="Portfolio.html" class="card-link">See portfolio &rarr;</a>
+      </div>
 
-    <div class="card">
-      <h2>Lab Portfolio</h2>
-      <p>Networking labs, infrastructure projects, and experiments.</p>
-      <a  href="Portfolio.html">See  more</a>
-    </div>
+      <div class="card">
+        <div>
+          <h2>CAD Projects</h2>
+          <p>3D mechanical design, structural modeling, and engineering renders.</p>
+        </div>
+        <a href="3DRenders.html" class="card-link">See 3D renders &rarr;</a>
+      </div>
 
-    <div class="card">
-      <h2>CAD Projects</h2>
-      <p>Mechanical design, modelling, and engineering work.</p>
-      <a  href="3DRenders.html">See  more</a>
-    </div>
+      <div class="card">
+        <div>
+          <h2>Art & Animations</h2>
+          <p>Hand-drawn digital illustrations, character designs, and animation projects.</p>
+        </div>
+        <a href="ArtSamples.html" class="card-link">See art samples &rarr;</a>
+      </div>
 
-    <div class="card">
-      <h2>Art & Animations</h2>
-      <p>Some of my art on here</p>
-      <a  href="ArtSamples.html">Samples on this site</a>
     </div>
 
   </div>
+
+  <footer>
+    &copy; Eric. Designed with HTML & CSS.
+  </footer>
+
   <script>
+    // Smooth fade-in observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -219,14 +280,13 @@
           }
         });
       },
-      {
-        threshold: 0.25
-      }
+      { threshold: 0.15 }
     );
     
     document.querySelectorAll(".card").forEach((card) => {
       observer.observe(card);
     });
   </script>
+
 </body>
 </html>

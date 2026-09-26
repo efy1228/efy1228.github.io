@@ -30,6 +30,26 @@
       flex-direction: column;
     }
 
+    /* Top Quote Bar Styles */
+    .quote-bar {
+      background: #0f0f0f;
+      border-bottom: 1px solid #1a1a1a;
+      color: #888;
+      font-size: 0.8rem;
+      padding: 8px 16px;
+      text-align: center;
+      letter-spacing: 0.3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .quote-bar span.quote-icon {
+      color: hotpink;
+      font-size: 0.9rem;
+    }
+
     /* Navbar */
     .navbar {
       background: rgba(17, 17, 17, 0.85);
@@ -203,6 +223,12 @@
 
 <body>
 
+  <!-- Random Quote Bar -->
+  <div class="quote-bar">
+    <span class="quote-icon">✦</span>
+    <span id="random-quote">Loading quote...</span>
+  </div>
+
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="active">HOME</a>
@@ -271,6 +297,24 @@
   </footer>
 
   <script>
+    // List of random quotes/sentences
+    const quotes = [
+      "GET IN THE ROBOT SHINJI",
+      "eugh, brudda, eugh",
+      "never gonna give you up",
+      "9+10 is indeed 21",
+      "'somebody help me!' -somebody help me kid",
+      "the 12 inch MacBook does indeed suck",
+      "'welcome to macbook airlines, where the fans are always at max speed'",
+      "heeheeheehaw",
+      "Mmm, trash! I love trash! Yum yum trash!"
+    ];
+
+    // Pick a random quote on load
+    const quoteElement = document.getElementById("random-quote");
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteElement.textContent = quotes[randomIndex];
+
     // Smooth fade-in observer
     const observer = new IntersectionObserver(
       (entries) => {
